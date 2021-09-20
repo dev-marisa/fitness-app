@@ -12,7 +12,7 @@ const NewWorkout = props => {
   const history = useHistory();
 
   useEffect( () => {
-    axios.get("/activities")
+    axios.get("/api/activities")
       .then(res => setAllActivities(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -21,7 +21,7 @@ const NewWorkout = props => {
     e.preventDefault();
     const caloriesBurned = activity.calories * duration;
     const workout = {duration, day: new Date(day+"T24:00:00Z"), activity, caloriesBurned};
-    axios.post("/workouts", workout)
+    axios.post("/api/workouts", workout)
       .then(res => {
         console.log(res);
         history.push("/");

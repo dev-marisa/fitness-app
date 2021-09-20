@@ -7,7 +7,7 @@ const AllWorkouts = props => {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect( () => {
-    axios.get("/workouts")
+    axios.get("/api/workouts")
       .then(res => setWorkouts(res.data))
       .catch(err => console.error(err));
   }, []);
